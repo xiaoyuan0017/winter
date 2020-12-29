@@ -1,0 +1,30 @@
+<section class="login_part section_padding ">
+    <div class="container">
+        <div class="row align-items-center">
+            <form [formGroup]='form' (ngSubmit)="updatepass()" class="row contact_form">
+                <div class="col-md-12 form-group p_star" style="display: flex;">
+                    <input type="text" class="form-control" formControlName="updatepassword" value=""
+                        placeholder="email">
+                    <!-- <input type="button" class="form-control " value="send code" placeholder="code..."> -->
+                    <button type="submit" [disabled]="passtatus" style="margin: 0 0;height: 38px;" class="btn_3">
+                        send
+                    </button>
+
+                </div>
+                <div class="col-md-8 p_star" style="display: flex;" >
+                    <div class="alert alert-danger alerthide" id="alforgot" role="alert">
+                        you email fomart is error...
+                    </div>
+                    <div class="alert alert-danger alerthide" id="alemail" role="alert">
+                        please entry you email...
+                    </div>
+                    <div class="alert alert-danger alerthide" id="aldont" role="alert">
+                        don't find email info...
+                    </div>
+                </div>
+            </form>
+            
+            
+        </div>
+    </div>
+</section>

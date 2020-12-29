@@ -1,0 +1,72 @@
+<section class="breadcrumb breadcrumb_bg">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-12">
+                <div class="breadcrumb_iner">
+                    <div class="breadcrumb_iner_item">
+                        <p>Home / Login</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- breadcrumb start-->
+
+<!--================login_part Area =================-->
+<section class="login_part">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 col-md-6">
+                <div class="login_part_text text-center">
+                    <div class="login_part_text_iner">
+                        <h2>If you don't have Account</h2>
+                        <p>To the Sign up,Please</p>
+                        <a [routerLink]="['/signup']" routerLinkActive="router-link-active" class="btn_3">Create an
+                            Account</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6">
+                <div class="login_part_form">
+                    <div class="login_part_form_iner">
+                        <h3>Welcome Back ! <br>
+                            Please login in now</h3>
+                        <form class="row contact_form" [formGroup]='form' (submit)="login()" novalidate="novalidate">
+                            <div class="col-md-12 form-group p_star">
+                                <input type="text" class="form-control" formControlName="loginname" placeholder="Email">
+                            </div>
+                            <div class="col-md-12 form-group p_star">
+                                <input type="password" class="form-control" formControlName="loginpass"
+                                    placeholder="Password">
+                            </div>
+                            <div class="col-md-10 p_star">
+                                <div class="alert alert-danger alerthide" id="alertlogin" role="alert">
+                                    please entry email and password...
+                                </div>
+                                <div class="alert alert-danger alerthide" id="alerterror" role="alert">
+                                    you email or password is not error...
+                                </div>
+                            </div>
+                            <div class="col-md-12 form-group">
+                                <!-- <div class="creat_account d-flex align-items-center">
+                                    <input type="checkbox" id="f-option" name="selector">
+                                    <label for="f-option">Remember me</label>
+                                </div> -->
+                                <button type="submit" class="btn_3" [disabled]="logindis">
+                                    log in
+                                </button>
+                                <a class="lost_pass" [routerLink]="['/forgot']" routerLinkActive="router-link-active"
+                                    href="#">forget password?</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<p>
+
+    <br>
+</p>

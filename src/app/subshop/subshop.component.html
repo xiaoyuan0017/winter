@@ -1,0 +1,83 @@
+<div class="container" style="font-size:18px;">
+    <form class="form-horizontal" enctype="multipart/form-data" [formGroup]='formShop' (submit)="postShop()"
+        novalidate="novalidate" style="margin: 70px 0;">
+        <div class="row form-group">
+            <label for="inputEmail3" class="col-sm-2 control-label"><b>Shop name:</b></label>
+            <div class="col-sm-6">
+                <input type="text" class="form-control" name="shopname" formControlName="shopname"
+                    placeholder="shop name...">
+            </div>
+        </div>
+        <div class="row form-group">
+            <label for="inputPassword3" class="col-sm-2 control-label"><b>Shop image:</b></label>
+            <div class="col-sm-3" style="margin-top: 10px;">
+                <input type="file" accept="image/*" id="shopfile" class="imgsty imguploadfile" name="shopfile"
+                    formControlName="shopfile" (change)="showImg($event)" multiple>
+                <div class="absoluteing imgsty showimg">
+                    <img id="upload" *ngIf="showimg;else img" style="width:100%;height: 100%;" src={{images}} alt="">
+                    <ng-template #img>
+                        <img id="upload" #default src="../../assets/img/default-user-image.jpg" alt="">
+                    </ng-template>
+                </div>
+            </div>
+            <div class="col-sm-3" style="margin-top: 10px;">
+                <input type="file" accept="image/*" id="shopfile1" class="imgsty imguploadfile" name="shopfile1"
+                    formControlName="shopfile1" (change)="showImg1($event)" multiple>
+                <div class="absoluteing imgsty showimg">
+                    <img *ngIf="showimg1;else img1" style="width:100%;height: 100%;" src={{images1}} alt="">
+                    <ng-template #img1>
+                        <img #default src="../../assets/img/default-user-image.jpg" alt="">
+                    </ng-template>
+                </div>
+            </div>
+            <div class="col-sm-3" style="margin-top: 10px;">
+                <input type="file" accept="image/*" id="shopfile2" class="imgsty imguploadfile" name="shopfile2"
+                    formControlName="shopfile2" (change)="showImg2($event)" multiple>
+                <div class="absoluteing imgsty showimg">
+                    <img *ngIf="showimg2;else img2" style="width:100%;height: 100%;" src={{images2}} alt="">
+                    <ng-template #img2>
+                        <img  #default src="../../assets/img/default-user-image.jpg" alt="">
+                    </ng-template>
+                </div>
+            </div>
+        </div>
+        <div class="row form-group">
+            <label for="inputPassword3" class="col-sm-2 control-label"><b>What kind:</b></label>
+            <div class="col-sm-6">
+                <select name="shopkind" formControlName="shopkind" class="form-control">
+                    <option selected value="" >select</option>
+                    <option value="clothes">clothes</option>
+                    <option value="shoes">shoes</option>
+                    <option value="computer">computer</option>
+                    <option value="phone">phone</option>
+                    <option value="Snack">Snack</option>
+                </select>
+            </div>
+        </div>
+        <div class="row form-group">
+            <label for="inputPassword3" class="col-sm-2 control-label"><b>Num:</b></label>
+            <div class="col-sm-6">
+                <input type="number" min="1" class="form-control" name="nums" formControlName="nums">
+            </div>
+        </div>
+        <div class="row form-group">
+            <label for="inputPassword3" class="col-sm-2 control-label"><b>Price:</b></label>
+            <div class="col-sm-6">
+                <input type="number" min="0.1" class="form-control" name="price" formControlName="price">
+            </div>
+        </div>
+        <div class="row form-group">
+            <label for="inputPassword3" class="col-sm-2 control-label"><b>Detailed introduction:</b></label>
+            <div class="col-sm-6">
+                <textarea class="form-control" name="shopinfo" formControlName="shopinfo" style="height: 160px;"
+                    placeholder="shop introduction..."></textarea>
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" [disabled]="shopdis" class="btn btn-primary">submit shop</button>
+            </div>
+        </div>
+    </form>
+
+</div>

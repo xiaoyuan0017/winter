@@ -1,0 +1,24 @@
+.relativeing {
+    position: relative;
+}
+
+.absoluteing {
+    position: absolute;
+}
+
+.imgsty {
+    width: 220px;
+    height: 220px;
+}
+
+.imguploadfile {
+    opacity: 0;
+    position: relative;
+    z-index: 100;
+}
+
+.showimg {
+    top: 0;
+}
+
+

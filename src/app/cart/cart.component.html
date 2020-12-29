@@ -1,0 +1,119 @@
+<section class="breadcrumb breadcrumb_bg">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-12">
+                <div class="breadcrumb_iner">
+                    <div class="breadcrumb_iner_item">
+                        <p>Home/Shop/Single product/Cart list</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- breadcrumb start-->
+
+<!--================Cart Area =================-->
+
+<section class="cart_area" style="padding: 10px 0;" >
+  <div class="container">
+    <div class="cart_inner">
+      <div class="table-responsive">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Product</th>
+              <th scope="col">Price</th>
+              <th scope="col">Quantity</th>
+              <th scope="col">Total</th>
+              <th scope="col">Operate</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let items of cartdata;index as i;" >
+              <td>
+                <div class="media">
+                  <div class="d-flex">
+                    <img style="width: 100%;height:150px;" src={{items.firstimgage}} alt="" />
+                  </div>
+                  <div class="media-body">
+                    <p>{{items.shopname}}</p>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <h5>$<span>{{items.shoprice}}</span> </h5>
+              </td>
+              <td>
+                <div class="product_count">
+                  <!-- <input type="text" value="1" min="0" max="10" title="Quantity:"
+                    class="input-text qty input-number" />
+                  <button
+                    class="increase input-number-increment items-count" type="button">
+                    <i class="ti-angle-up"></i>
+                  </button>
+                  <button
+                    class="reduced input-number-decrement items-count" type="button">
+                    <i class="ti-angle-down"></i>
+                  </button> -->
+                  <span class="input-number-decrement"> <i (click)="dec($event)" class="ti-minus"></i></span>
+                  <input class="input-number" type="text" readonly="readonly" value="{{numvalue}}" >
+                  <span class="input-number-increment"> <i (click)="inc($event)" class="ti-plus"></i></span>
+                </div>
+              </td>
+              <td class="pricecount" >${{items.shoprice}}</td>
+              <td>
+                  <span class="ti-close" (click)="removecart($event)" ><span style="display: none;" >{{items.id}}</span></span>
+              </td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td>
+                <h5>Subtotal</h5>
+              </td>
+              <td>
+                <h5>${{pricecounts}}</h5>
+              </td>
+            </tr>
+            <tr class="shipping_area">
+              <td></td>
+              <td></td>
+              <td></td>
+              <td>
+                <!-- <h5>Shipping</h5> -->
+              </td>
+              <td>
+                <div class="shipping_box"   >
+                  <!-- <ul class="list">
+                    <li>
+                      Flat Rate: $5.00
+                      <input type="radio" aria-label="Radio button for following text input">
+                    </li>
+                  </ul> -->
+                  <select id="shopcoutrny" style="background-color: white;" class="shipping_select">
+                    <option value="USA">USA</option>
+                    <option value="HongKong">HongKong</option>
+                    <option value="Italy">Italy</option>
+                  </select>
+                  <!-- <input type="text" id="shopaddress" value={{useritem.shopaddress}} placeholder="Address..." class="post_code" style="background-color: white;" name="" id="">
+                  <input class="post_code" id="shopostcode" value={{useritem.shoppostcode}} type="text" style="background-color: white;" placeholder="Postcode/Zipcode" /> -->
+                  <input type="text" id="shopaddress" value={{userdata.shopaddress}} placeholder="Address..." class="post_code" style="background-color: white;" name="">
+                  <input class="post_code" id="shopostcode" value={{userdata.shoppostcode}} type="text"  style="background-color: white;" placeholder="Postcode/Zipcode" />
+                  <a class="btn_1" style="color: white;cursor: pointer;" (click)="detail()"  >Update Details</a>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="checkout_btn_inner float-right">
+          <a class="btn_1" [routerLink]="['/shop']"
+          routerLinkActive="router-link-active" >Continue Shopping</a>
+          <a class="btn_1 checkout_btn_1" [routerLink]="['/checkout']" [queryParams]="{price:pricecounts}"
+          routerLinkActive="router-link-active"  >Proceed to checkout</a>
+        </div>
+      </div>
+    </div>
+    </div>
+</section>

@@ -1,0 +1,82 @@
+<section class="breadcrumb breadcrumb_bg">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-12">
+                <div class="breadcrumb_iner">
+                    <div class="breadcrumb_iner_item">
+                        <p>Home / Signup</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- breadcrumb start-->
+
+<!--================login_part Area =================-->
+<section class="login_part">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 col-md-6">
+                <div class="login_part_text text-center">
+                    <div class="login_part_text_iner">
+                        <h2>If you have Account</h2>
+                        <p>Please sign in</p>
+                        <a [routerLink]="['/login']" routerLinkActive="router-link-active" class="btn_3">Login in</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6">
+                <div class="login_part_form">
+                    <div class="login_part_form_iner">
+                        <h3>Welcome Back ! <br>
+                            Please Sign up now</h3>
+                        <!-- [formGroup]="form" -->
+                        <form [formGroup]='form' (ngSubmit)="signupAccount()" class="row contact_form">
+                            <div class="col-md-12 form-group p_star">
+                                <input type="text" class="form-control" formControlName="useremail" value=""
+                                    placeholder="Email">
+                            </div>
+                            <div class="col-md-12 form-group p_star">
+                                    <input type="text" class="form-control" formControlName="username" value=""
+                                        placeholder="username">
+                                </div>
+                            <div class="col-md-12 form-group p_star">
+                                <input type="password" class="form-control" formControlName="userpass" value=""
+                                    placeholder="Password">
+                            </div>
+                            <div class="col-md-12 form-group p_star" style="display: flex;">
+                                <input type="text" class="form-control" formControlName="usercode" value=""
+                                    placeholder="code">
+                                <!-- <input type="button" class="form-control " value="send code" placeholder="code..."> -->
+                                <button type="button" [disabled]="codestatus" (click)="sendcode()"style="margin: 0 0;height: 38px;"  class="btn_3">
+                                    {{sendcodes}}
+                                </button>
+                            </div>
+                            <div class="col-md-10 p_star">
+                                <div class="alert alert-danger alerthide" id="alertsignup" role="alert">
+                                    you email is have been signup...so please enter again...
+                                </div>
+                                <div class="alert alert-danger alerthide" id="alertaccount" role="alert">
+                                    please entry email and username and password and code...
+                                </div>
+                                <div class="alert alert-danger alerthide" id="alertmailbox" role="alert">
+                                    please entry Correct mailbox...
+                                </div>
+                                <div class="alert alert-danger alerthide" id="coderroe" role="alert">
+                                    code is error...
+                                </div>
+                            </div>
+                            <div class="col-md-12 form-group">
+                                <button type="submit" [disabled]="subdis" class="btn_3">
+                                    Sign up
+                                </button>
+                                <!-- <a class="lost_pass" href="#">forget password?</a> -->
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

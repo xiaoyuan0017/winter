@@ -1,0 +1,74 @@
+<section>
+    <div class="container" style="font-size:18px;padding-top: 60px;padding-bottom: 40px;">
+        <!-- <div id="sefl" >
+
+            123123
+        </div> -->
+        <!-- *ngFor="let item of prodata;index as i;" -->
+        <div class="col-md-8" style="line-height: 1;" >
+            <button type="button" data-toggle="modal" (click)="permodal()" data-target="#smallmodal" style="margin: 10px 0;height: 34px;"
+                class="btn_3">
+                Edit
+            </button>
+            <div class="form-group" style="display: flex;">
+                <label for="inputEmail3" class="col-sm-3 control-label"><b>Head Photo:</b></label>
+                <div class="col-sm-3">
+                    <input type="file" accept="image/*" id="shopfile" class="imgsty imguploadfile" name="shopfile"
+                        (change)="showImg($event)" multiple>
+                    <div class="absoluteing imgsty showimg">
+                        <img id="upload" *ngIf="showimg;else img" style="width:100%;height: 100%;border-radius: 110px;"
+                            src={{prodata.photo}} alt="">
+                        <ng-template #img>
+                            <img id="" style="border-radius: 110px;" #default
+                                src="../../assets/img/default-user-image.png" alt="">
+                        </ng-template>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group" style="display: flex;">
+                <label for="inputEmail3" class="col-sm-3 control-label"><b>User Name:</b></label>
+                <div class="col-sm-10">
+                    <span id="selfname"  >{{prodata.selfname}}</span>
+                </div>
+            </div>
+            <div class="form-group" style="display: flex;">
+                <label for="inputEmail3" class="col-sm-3 control-label"><b>Email:</b></label>
+                <div class="col-sm-10">
+                    {{prodata.useremail}}
+                    <!-- <input type="email" class="form-control" id="inputEmail3" placeholder="Email"> -->
+                </div>
+            </div>
+            <div class="form-group" style="display: flex;">
+                <label for="inputPassword3" class="col-sm-3 control-label"><b>Phone:</b></label>
+                <div id="phones" class="col-sm-10">
+                    {{prodata.phone}}
+                    <!-- <input type="password" class="form-control" id="inputPassword3" placeholder="Password"> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<div id="smallmodal" class="modal fade " tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+    <div class="modal-dialog " role="document">
+        <div class="modal-content">
+            <form class="contact_form" [formGroup]='personaldata' (submit)="profiledata()" novalidate="novalidate">
+                <div class="modal-body">
+                    <!-- <div class="col-md-12 form-group p_star">
+                        <input type="text" class="form-control"  id="username1" formControlName="username"  value=""
+                            placeholder="user name">
+                    </div> -->
+                    <div class="col-md-12 form-group p_star">
+                        <input type="text" class="form-control"  id="userphone1" formControlName="userphone"  value=""
+                            placeholder="uesr phone">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary" [disabled]="profilebool">Save changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

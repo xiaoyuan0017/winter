@@ -1,0 +1,8 @@
+#paybackimg{
+    background-image: url(../../assets/img/paypalogo.png);
+    /* background-size:100% 100%; */
+    background-repeat: no-repeat;
+    width: 230px;
+    height: 44px;
+    border: none;
+}
